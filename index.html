@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>jQuery-zm</title>
+</head>
+<body>
+	<style>
+		.test-red-font {
+			color: red;
+		}
+	</style>
+
+	<div id="one">div#one</div>
+	</div>
+	<div>
+		<p class="page">p.page:eq(0)</p>
+		<p class="page">p.page:eq(1)</p>
+	</div>
+	<form>
+		<input type="text" id="username" placeholder="username" value="input[type=text]#username">
+		<textarea id="address">textarea#address</textarea>
+		<button type="submit">button#submit</button>
+	</form>
+
+	<script src="require.js"></script>
+	<script>
+		require.config({
+			baseUrl: "./src"
+		});
+	</script>
+	<script src="./src/jquery.js"></script>
+</body>
+</html>
