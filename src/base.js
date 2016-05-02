@@ -40,10 +40,14 @@ define(function (require) {
         })
         return target;
     }
+    function error(message){
+        console.error && console.error('[jQuery Error]', message);
+    }
     return {
         extend: extend,
         isPlainObject: isPlainObject,
         isArray: isArray,
-        isFunction: isFunction
+        isFunction: isFunction,
+        error: error
     }
 });

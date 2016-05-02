@@ -14,7 +14,7 @@ define(function (require) {
     ElementList.prototype = {
         each: function (fn) {
             for (var i in this.doms) {
-                if (isNaN(i)) {
+                if (isNaN(i)) {     //isNaN: 是否不是数值
                     continue;
                 }
                 fn(this.doms[i], i);
@@ -25,7 +25,7 @@ define(function (require) {
                 return this;
             }
             if (!/^[\w-\s]+$/.test(cls)) {
-                $.error('`cls` is not valid')
+                $.error(cls + ' is not valid');
                 return this
             }
             this.each(function (dom) {
