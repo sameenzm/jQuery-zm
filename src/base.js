@@ -18,31 +18,32 @@ define(function (require) {
     function extend(target, obj1, obj2) {
         var objList;
         var isDeep = target === true;
-        if (typeof target === 'boolean') {
+        if(typeof target === 'boolean'){
             target = obj1;
-            objList = Array.prototype.slice.call(arguments, 0).slice(2);
+            objList = [].slice.call(arguments,0).slice(2);
         }
-        else {
-            objList = Array.prototype.slice.call(arguments, 0).slice(1);
+        else{
+            objList = [].slice.call(arguments,0).slice(1);  // 同 Array.prototype.slice.call(arguments,0).slice(1);
         }
-        objList.forEach(function (obj) {
-            for (var i in obj) {
-                if (isDeep && isPlainObject(target[i])) {
-                    extend(isDeep, target[i], obj[i]);
+        objList.forEach(function(obj){
+            for(var i in obj){
+                if(obj.hasOwnProperty(i)){
+                    if(isDeep && isPlainObject(target[i])){
+                        extend(isDeep, target[i], obj[i]);
+                    }
+                    else {
+                        target[i] = obj[i];  //hasOwnProperty 检查属性是否在实例上，而不是在原型上
+                    }
                 }
-                else {
-                    target[i] = obj[i];
-                }
+                else continue;
             }
-        });
+        })
         return target;
     }
-
     return {
         extend: extend,
         isPlainObject: isPlainObject,
         isArray: isArray,
         isFunction: isFunction
     }
-
 });
