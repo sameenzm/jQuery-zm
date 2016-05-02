@@ -28,6 +28,6 @@ define(function (require) {
         }
     }
 
-    // $.extend(jQuery, $);
+    $.extend(jQuery, $);
     return jQuery;
 });
