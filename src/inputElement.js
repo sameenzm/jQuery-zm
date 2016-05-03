@@ -19,7 +19,5 @@ define(function (require) {
             this.dom.value = text;
         }
     };
-
     return InputElement;
-
 });

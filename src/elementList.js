@@ -26,18 +26,16 @@ define(function (require) {
             }
             if (!/^[\w-\s]+$/.test(cls)) {
                 $.error(cls + ' is not valid');
-                return this
+                return this;
             }
             this.each(function (dom) {
                 cls.split(/\s+/).forEach(function (cls) {
                     // TODO
-                    dom.classList.add(cls);
+                    dom.classList.add(cls); //classList 属性返回元素的类名，支持add()、remove()、contains()等
                 });
             });
 			return this;
         }
     };
-
     return ElementList;
-
 });
