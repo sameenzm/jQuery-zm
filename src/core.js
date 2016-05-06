@@ -2,13 +2,13 @@
  * Created by Sameen
  */
 define(function (require) {
+    var InputElement = require('./inputElement'),
+    ContainerElement = require('./containerElement'),
+    ElementList = require('./elementList');
+    staticFuc = require('./static'),
+    $ = require('./base');
 
-    var InputElement = require('./inputElement');
-    var ContainerElement = require('./containerElement');
-    var ElementList = require('./elementList');
-    var $ = require('./base');
-
-    function jQuery(selector, context){
+    function jQuery(selector, context){ 
         if(document.querySelectorAll){
             // TODO
             var context = context ? document.querySelector(context) : document;
@@ -27,7 +27,7 @@ define(function (require) {
             // TODO
         }
     }
-
-    $.extend(jQuery, $);
+    
+    $.extend(jQuery, $, staticFuc);
     return jQuery;
 });
