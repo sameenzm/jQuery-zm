@@ -6,15 +6,19 @@ define(function (require) {
     function isType(obj, type){
         return Object.prototype.toString.call(obj) === '[object '+ type +']';
     }
+
     function isFunction(test){
         return isType(test, 'Function');
     }
+
     function isArray(test){
         return Array.isArray ? Array.isArray(test) : isType(test, 'Array');
     }
+
     function isPlainObject(test){
         return isType(test, 'Object');
     }
+
     function extend(target, obj1, obj2) {
         var objList;
         var isDeep = target === true;
@@ -40,14 +44,25 @@ define(function (require) {
         })
         return target;
     }
+
     function error(message){
         console.error && console.error('[jQuery Error]', message);
     }
+
+    function each(obj, cb){
+        for(var i in arr){
+            cb(i, arr[i]);
+        }
+        return obj;
+    }
+    
     return {
         extend: extend,
         isPlainObject: isPlainObject,
         isArray: isArray,
         isFunction: isFunction,
-        error: error
+        error: error,
+        noop: function () {},
+        each: each
     }
 });
